@@ -1,0 +1,28 @@
+﻿@model App.Models.Regiao
+@section scripts {
+    <script src="~/js/mapa.js"></script>
+}
+@section styles {
+    <script src="~/css/mapa.css"></script>
+}
+
+
+
+@{
+    ViewData["Title"] = "Mapa cultural digital";
+}
+
+<div id="tudo">
+    <h1 class="text-center">MAPA CULTURAL DIGITAL</h1>
+    <br>
+    <div class="text-center">
+        <a class="btn btn-primary button" asp-area="" asp-controller="Mapa" asp-action="Interagir">Clique aqui para entrar e
+            interagir</a>
+    </div>
+
+    <div>
+        <img src="~/img/turma.png" alt="" class="w-100">
+    </div>
+
+
+</div>

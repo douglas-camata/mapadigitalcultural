@@ -1,0 +1,182 @@
+@model App.Models.Regiao
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h4>Regiao</h4>
+<hr />
+<div class="row">
+    <div class="col-12 col-lg-12">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdRegiao" />
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control " readonly />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="form-group col-12 col-md-4 text-center">
+                    <label asp-for="ImagemDanca" class="control-label"></label>
+                    <input type="file" name="fotoDanca" asp-for="ImagemDanca" class="form-control" />
+                    <input asp-for="ImagemDanca" class="form-control d-none" />
+                    <span asp-validation-for="ImagemDanca" class="text-danger"></span>
+                    <img src="~/img/@Html.DisplayFor(model => model.ImagemDanca)" alt="" style="height: 150px; width:250px;">
+                </div>
+                <div class="form-group col-12 col-md-8">
+                    <label asp-for="Danca" class="control-label"></label>
+                    <textarea asp-for="Danca" class="form-control" rows=7> </textarea>
+                    <span asp-validation-for="Danca" class="text-danger"></span>
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="row">
+                <div class="form-group col-12 col-md-4 text-center">
+                    <label asp-for="ImagemCulinaria" class="control-label"></label>
+                    <input type="file" name="fotoCulinaria" asp-for="ImagemCulinaria" class="form-control" />
+                    <input asp-for="ImagemCulinaria" class="form-control d-none" />
+                    <span asp-validation-for="ImagemCulinaria" class="text-danger"></span>
+                    <img src="~/img/@Html.DisplayFor(model => model.ImagemCulinaria)" alt="" style="height: 150px; width:250px;">
+                </div>
+                <div class="form-group col-12 col-md-8">
+                    <label asp-for="Culinaria" class="control-label"></label>
+                    <textarea asp-for="Culinaria" class="form-control" rows=7> </textarea>
+                    <span asp-validation-for="Culinaria" class="text-danger"></span>
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="row">
+                <div class="form-group col-12 col-md-4 text-center">
+                    <label asp-for="ImagemMusica" class="control-label"></label>
+                    <input type="file" name="fotoMusica" asp-for="ImagemMusica" class="form-control" />
+                    <input asp-for="ImagemMusica" class="form-control d-none" />
+                    <span asp-validation-for="ImagemMusica" class="text-danger"></span>
+                    <img src="~/img/@Html.DisplayFor(model => model.ImagemMusica)" alt="" style="height: 150px; width:250px;">
+                </div>
+                <div class="form-group col-12 col-md-8">
+                    <label asp-for="Musica" class="control-label"></label>
+                    <textarea asp-for="Musica" class="form-control" rows=7> </textarea>
+                    <span asp-validation-for="Musica" class="text-danger"></span>
+                </div>
+            </div>
+
+            <hr>
+                      
+            <div class="row">
+                <div class="form-group col-12 col-md-4 text-center">
+                    <label asp-for="ImagemFestas" class="control-label"></label>
+                    <input type="file" name="fotoFestas" asp-for="ImagemFestas" class="form-control" />
+                    <input asp-for="ImagemFestas" class="form-control d-none" />
+                    <span asp-validation-for="ImagemFestas" class="text-danger"></span>
+                    <img src="~/img/@Html.DisplayFor(model => model.ImagemFestas)" alt="" style="height: 150px; width:250px;">
+                </div>
+                <div class="form-group col-12 col-md-8">
+                    <label asp-for="Festas" class="control-label"></label>
+                    <textarea asp-for="Festas" class="form-control" rows=7> </textarea>
+                    <span asp-validation-for="Festas" class="text-danger"></span>
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="row">
+                <div class="form-group col-12 col-md-4 text-center">
+                    <label asp-for="ImagemFolclore" class="control-label"></label>
+                    <input type="file" name="fotoFolclore" asp-for="ImagemFolclore" class="form-control" />
+                    <input asp-for="ImagemFolclore" class="form-control d-none" />
+                    <span asp-validation-for="ImagemFolclore" class="text-danger"></span>
+                    <img src="~/img/@Html.DisplayFor(model => model.ImagemFolclore)" alt="" style="height: 150px; width:250px;">
+                </div>
+                <div class="form-group col-12 col-md-8">
+                    <label asp-for="Folclore" class="control-label"></label>
+                    <textarea asp-for="Folclore" class="form-control" rows=7> </textarea>
+                    <span asp-validation-for="Folclore" class="text-danger"></span>
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="row">
+                <div class="form-group col-12 col-md-4 text-center">
+                    <label asp-for="ImagemArtesanato" class="control-label"></label>
+                    <input type="file" name="fotoArtesanato" asp-for="ImagemArtesanato" class="form-control" />
+                    <input asp-for="ImagemArtesanato" class="form-control d-none" />
+                    <span asp-validation-for="ImagemArtesanato" class="text-danger"></span>
+                    <img src="~/img/@Html.DisplayFor(model => model.ImagemArtesanato)" alt="" style="height: 150px; width:250px;">
+                </div>
+                <div class="form-group col-12 col-md-8">
+                    <label asp-for="Artesanato" class="control-label"></label>
+                    <textarea asp-for="Artesanato" class="form-control" rows=7> </textarea>
+                    <span asp-validation-for="Artesanato" class="text-danger"></span>
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="row">
+                <div class="form-group col-12 col-md-4 text-center">
+                    <label asp-for="ImagemVestimenta" class="control-label"></label>
+                    <input type="file" name="fotoVestimenta" asp-for="ImagemVestimenta" class="form-control" />
+                    <input asp-for="ImagemVestimenta" class="form-control d-none" />
+                    <span asp-validation-for="ImagemVestimenta" class="text-danger"></span>
+                    <img src="~/img/@Html.DisplayFor(model => model.ImagemVestimenta)" alt="" style="height: 150px; width:250px;">
+                </div>
+                <div class="form-group col-12 col-md-8">
+                    <label asp-for="Vestimenta" class="control-label"></label>
+                    <textarea asp-for="Vestimenta" class="form-control" rows=7> </textarea>
+                    <span asp-validation-for="Vestimenta" class="text-danger"></span>
+                </div>
+            </div>
+
+             <hr>
+            
+            <div class="row">
+                <div class="form-group col-12 col-md-4 text-center">
+                    <label asp-for="ImagemLiteratura" class="control-label"></label>
+                    <input type="file" name="fotoLiteratura" asp-for="ImagemLiteratura" class="form-control" />
+                    <input asp-for="ImagemLiteratura" class="form-control d-none" />
+                    <span asp-validation-for="ImagemLiteratura" class="text-danger"></span>
+                    <img src="~/img/@Html.DisplayFor(model => model.ImagemLiteratura)" alt="" style="height: 150px; width:250px;">
+                </div>
+                <div class="form-group col-12 col-md-8">
+                    <label asp-for="Literatura" class="control-label"></label>
+                    <textarea asp-for="Literatura" class="form-control" rows=7> </textarea>
+                    <span asp-validation-for="Literatura" class="text-danger"></span>
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="row">
+                <div class="form-group col-12 col-md-4 text-center">
+                    <label asp-for="ImagemTurismo" class="control-label"></label>
+                    <input type="file" name="fotoTurismo" asp-for="ImagemTurismo" class="form-control" />
+                    <input asp-for="ImagemTurismo" class="form-control d-none" />
+                    <span asp-validation-for="ImagemTurismo" class="text-danger"></span>
+                    <img src="~/img/@Html.DisplayFor(model => model.ImagemTurismo)" alt="" style="height: 150px; width:250px;">
+                </div>
+                <div class="form-group col-12 col-md-8">
+                    <label asp-for="Turismo" class="control-label"></label>
+                    <textarea asp-for="Turismo" class="form-control" rows=7> </textarea>
+                    <span asp-validation-for="Turismo" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

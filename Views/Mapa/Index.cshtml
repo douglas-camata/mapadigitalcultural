@@ -1,0 +1,111 @@
+﻿@model App.Models.Regiao
+@section scripts {
+    <script src="~/js/mapa.js"></script>
+}
+@section styles {
+    <script src="~/css/mapa.css"></script>
+}
+
+
+
+@{
+    ViewData["Title"] = "Mapa cultural digital";
+}
+
+<div id="tudo">
+    <h1 class="text-center">MAPA CULTURAL DIGITAL</h1>
+
+    <div class="row">
+        <div id="mapa" class="col-12 col-lg-9"> <!-- coluna esquerda -->
+            <section>
+                <p class="text-center">Clique nas regiões para interagir com o mapa passe o mouse ou click os estados.
+                </p>
+                <div style="text-align: center;">
+                    <embed id="E" src="~/img/mapa.svg" type="image/svg+xml">
+                </div>
+                <p id="regiao_estado"></p>
+                <p id="nome_estado"></p>
+                <p id="capital_estado"></p>
+            </section>
+        </div>
+        <div class="col-12 col-lg-3 row gap-0 justify-content-center align-items-center">
+            <img src="~/icon/danca.png" alt="" style="width:100px" data-bs-toggle="modal" data-bs-target="#DancaModal">
+            <img src="~/icon/culinaria.png" alt="" style="width:100px"  data-bs-toggle="modal" data-bs-target="#CulinariaModal">
+            <img src="~/icon/musica.png" alt="" style="width:100px">
+            <img src="~/icon/festas.png" alt="" style="width:100px">
+            <img src="~/icon/folclore.png" alt="" style="width:100px">
+            <img src="~/icon/artesanato.png" alt="" style="width:100px">
+            <img src="~/icon/vestimenta.png" alt="" style="width:100px">
+            <img src="~/icon/literatura.png" alt="" style="width:100px">
+        </div>
+    </div>
+</div <section>
+<div>
+    <h1 class="text-center">Região @Html.DisplayFor(model => model.Nome)</h1>
+
+    <div class="modal fade" id="DancaModal">
+        <div class="modal-dialog modal-dialog-centered " style="max-width: 70vw;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Dança da região @Html.DisplayFor(model => model.Nome)</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img class="w-100" src="~/img/@Html.DisplayFor(model => model.ImagemDanca)" alt="">
+                </div>
+                <div class="modal-body">
+                    @Html.DisplayFor(model => model.Danca)
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal" >Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="CulinariaModal">
+        <div class="modal-dialog modal-dialog-centered " style="max-width: 70vw;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Dança da região @Html.DisplayFor(model => model.Nome)</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img class="w-100" src="~/img/@Html.DisplayFor(model => model.ImagemCulinaria)" alt="">
+                </div>
+                <div class="modal-body">
+                    @Html.DisplayFor(model => model.Culinaria)
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal" >Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>@Html.DisplayFor(model => model.Danca) </h3>
+    <div><img src="~/img/@Html.DisplayFor(model => model.ImagemDanca)" alt="" class="w-100"></div>
+
+    <h3>@Html.DisplayFor(model => model.Culinaria) </h3>
+    <div><img src="~/img/@Html.DisplayFor(model => model.ImagemCulinaria)" alt="" class="w-100"></div>
+
+    <h3>@Html.DisplayFor(model => model.Musica) </h3>
+    <div><img src="~/img/@Html.DisplayFor(model => model.ImagemMusica)" alt="" class="w-100"></div>
+
+    <h3>@Html.DisplayFor(model => model.Festas) </h3>
+    <div><img src="~/img/@Html.DisplayFor(model => model.ImagemFestas)" alt="" class="w-100"></div>
+
+    <h3>@Html.DisplayFor(model => model.Folclore) </h3>
+    <div><img src="~/img/@Html.DisplayFor(model => model.ImagemFolclore)" alt="" class="w-100"></div>
+
+    <h3>@Html.DisplayFor(model => model.Artesanato) </h3>
+    <div><img src="~/img/@Html.DisplayFor(model => model.ImagemArtesanato)" alt="" class="w-100"></div>
+
+    <h3>@Html.DisplayFor(model => model.Vestimenta) </h3>
+    <div><img src="~/img/@Html.DisplayFor(model => model.ImagemVestimenta)" alt="" class="w-100"></div>
+
+    <h3>@Html.DisplayFor(model => model.Literatura) </h3>
+    <div><img src="~/img/@Html.DisplayFor(model => model.ImagemLiteratura)" alt="" class="w-100"></div>
+
+</div>
+</section>

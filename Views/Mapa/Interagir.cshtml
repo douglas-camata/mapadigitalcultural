@@ -1,0 +1,449 @@
+﻿@model App.Models.Regiao
+@section scripts {
+    <script src="~/js/mapa.js"></script>
+}
+@section styles {
+    <link rel="stylesheet" href="~/css/mapa.css" />
+}
+
+
+@{
+    ViewData["Title"] = "Mapa digital cultural";
+}
+
+<div id="tudo">
+    <h1 class="text-center">MAPA CULTURAL DIGITAL</h1>
+    <p class="text-center">Clique nas regiões para interagir com o mapa passe o mouse ou clique os estados.
+    <div class="row">
+
+        <!-- DIV do Mapa  -->
+        <div id="mapa" class="col-12 col-lg-7"> <!-- coluna esquerda -->
+            <section>
+
+                </p>
+                <div style="text-align: center;">
+                    <embed id="E" src="~/img/mapa.svg" type="image/svg+xml">
+                </div>
+                <p id="regiao_estado"></p>
+                <p id="nome_estado"></p>
+                <p id="capital_estado"></p>
+            </section>
+        </div>
+        <div class="col-12 col-lg-5 justify-content-center align-items-center">
+            <div class="wrapper">
+                <div class="card-cat" data-bs-toggle="modal" data-bs-target="#DancaModal">
+                    <a>
+                        <img src="/icon/danca.png" />
+                        Danças
+                    </a>
+                </div>
+                <div class="card-cat" data-bs-toggle="modal" data-bs-target="#CulinariaModal">
+                    <a>
+                        <img src="/icon/culinaria.png" />
+                        Culinaria
+                    </a>
+                </div>
+                <div class="card-cat" data-bs-toggle="modal" data-bs-target="#MusicaModal">
+                    <a>
+                        <img src="/icon/musica.png" />
+                        Músicas
+                    </a>
+                </div>
+                <div class="card-cat" data-bs-toggle="modal" data-bs-target="#FestaModal">
+                    <a>
+                        <img src="/icon/festas.png" />
+                        Festas
+                    </a>
+                </div>
+                <div class="card-cat" data-bs-toggle="modal" data-bs-target="#FolcloreModal">
+                    <a>
+                        <img src="/icon/folclore.png" />
+                        Folclore
+                    </a>
+                </div>
+                <div class="card-cat" data-bs-toggle="modal" data-bs-target="#ArtesanatoModal">
+                    <a>
+                        <img src="/icon/artesanato.png" />
+                        Artesanato
+                    </a>
+                </div>
+                <div class="card-cat" data-bs-toggle="modal" data-bs-target="#VestimentaModal">
+                    <a>
+                        <img src="/icon/vestimenta.png" />
+                        Vestimentas
+                    </a>
+                </div>
+                <div class="card-cat" data-bs-toggle="modal" data-bs-target="#LiteraturaModal">
+                    <a>
+                        <img src="/icon/literatura.png" />
+                        Literatura
+                    </a>
+                </div>
+                <div class="card-cat" data-bs-toggle="modal" data-bs-target="#TurismoModal">
+                    <a>
+                        <img src="/icon/pontos_turisticos.png" />
+                        Turismo
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Section com os modal -->
+<section>
+    <div>
+        @if (Html.DisplayTextFor(model => model.Nome).ToString() != "")
+        {
+            <h1 class="text-center container">Região @Html.DisplayFor(model => model.Nome)</h1>
+        }        
+
+        <div class="modal fade" id="DancaModal">
+            <div class="modal-dialog modal-dialog-centered " style="max-width: 70vw;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>Dança da região @Html.DisplayFor(model => model.Nome)</h5>
+                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img class="w-100" src="~/img/@Html.DisplayFor(model => model.ImagemDanca)" alt="">
+                    </div>
+                    <div class="modal-body">
+                        @Html.DisplayFor(model => model.Danca)
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="CulinariaModal">
+            <div class="modal-dialog modal-dialog-centered " style="max-width: 70vw;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>Culinária da região @Html.DisplayFor(model => model.Nome)</h5>
+                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img class="w-100" src="~/img/@Html.DisplayFor(model => model.ImagemCulinaria)" alt="">
+                    </div>
+                    <div class="modal-body">
+                        @Html.DisplayFor(model => model.Culinaria)
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="MusicaModal">
+            <div class="modal-dialog modal-dialog-centered " style="max-width: 70vw;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>Música da região @Html.DisplayFor(model => model.Nome)</h5>
+                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img class="w-100" src="~/img/@Html.DisplayFor(model => model.ImagemMusica)" alt="">
+                    </div>
+                    <div class="modal-body">
+                        @Html.DisplayFor(model => model.Musica)
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="FestaModal">
+            <div class="modal-dialog modal-dialog-centered " style="max-width: 70vw;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>Festas da região @Html.DisplayFor(model => model.Nome)</h5>
+                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img class="w-100" <img class="w-100" src="~/img/@Html.DisplayFor(model => model.ImagemFestas)"
+                            alt="">
+                    </div>
+                    <div class="modal-body">
+                        @Html.DisplayFor(model => model.Festas)
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="FolcloreModal">
+            <div class="modal-dialog modal-dialog-centered " style="max-width: 70vw;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>Folclore da região @Html.DisplayFor(model => model.Nome)</h5>
+                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img class="w-100" src="~/img/@Html.DisplayFor(model => model.ImagemFolclore)" alt="">
+                    </div>
+                    <div class="modal-body">
+                        @Html.DisplayFor(model => model.Folclore)
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="ArtesanatoModal">
+            <div class="modal-dialog modal-dialog-centered " style="max-width: 70vw;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>Artesanato da região @Html.DisplayFor(model => model.Nome)</h5>
+                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img class="w-100" src="~/img/@Html.DisplayFor(model => model.ImagemArtesanato)" alt="">
+                    </div>
+                    <div class="modal-body">
+                        @Html.DisplayFor(model => model.Artesanato)
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="VestimentaModal">
+            <div class="modal-dialog modal-dialog-centered " style="max-width: 70vw;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>Vestimenta da região @Html.DisplayFor(model => model.Nome)</h5>
+                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img class="w-100" src="~/img/@Html.DisplayFor(model => model.ImagemVestimenta)" alt="">
+                    </div>
+                    <div class="modal-body">
+                        @Html.DisplayFor(model => model.Vestimenta)
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="LiteraturaModal">
+            <div class="modal-dialog modal-dialog-centered " style="max-width: 70vw;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>Literatura da região @Html.DisplayFor(model => model.Nome)</h5>
+                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img class="w-100" src="~/img/@Html.DisplayFor(model => model.ImagemLiteratura)" alt="">
+                    </div>
+                    <div class="modal-body">
+                        @Html.DisplayFor(model => model.Literatura)
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="TurismoModal">
+            <div class="modal-dialog modal-dialog-centered " style="max-width: 70vw;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>Pontos turísticos da região @Html.DisplayFor(model => model.Nome)</h5>
+                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img class="w-100" src="~/img/@Html.DisplayFor(model => model.ImagemTurismo)" alt="">
+                    </div>
+                    <div class="modal-body">
+                        @Html.DisplayFor(model => model.Turismo)
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+<section class="container">
+
+    @if (Html.DisplayTextFor(model => model.ImagemDanca).ToString() != "")
+    {
+        <div class="img-card iCard-style1">
+            <div class="card-content">
+                <div class="card-image">
+                    <span class="card-title"><i class="bi bi-person-raised-hand"></i> Dança</span>
+                    <img src="~/img/@Html.DisplayFor(model => model.ImagemDanca)" />
+                </div>
+
+                <div class="card-text">
+                    <p> @Html.DisplayFor(model => model.Danca)</p>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+    }
+
+    @if (Html.DisplayTextFor(model => model.ImagemCulinaria).ToString() != "")
+    {
+        <div class="img-card iCard-style1">
+            <div class="card-content">
+                <div class="card-image">
+                    <span class="card-title"><i class="bi bi-shop"></i> Culinária</span>
+                    <img src="~/img/@Html.DisplayFor(model => model.ImagemCulinaria)" />
+                </div>
+
+                <div class="card-text">
+                    <p> @Html.DisplayFor(model => model.Culinaria)</p>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+    }
+
+    @if (Html.DisplayTextFor(model => model.ImagemMusica).ToString() != "")
+    {
+    <div class="img-card iCard-style1">
+        <div class="card-content">
+            <div class="card-image">
+                <span class="card-title"><i class="bi bi-music-note-beamed"></i> Música</span>
+                <img src="~/img/@Html.DisplayFor(model => model.ImagemMusica)" />
+            </div>
+
+            <div class="card-text">
+                <p> @Html.DisplayFor(model => model.Musica)</p>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    }
+    @if (Html.DisplayTextFor(model => model.ImagemFestas).ToString() != "")
+    {
+    <div class="img-card iCard-style1">
+        <div class="card-content">
+            <div class="card-image">
+                <span class="card-title"> <i class="bi bi-cake2-fill"></i> Festas</span>
+                <img src="~/img/@Html.DisplayFor(model => model.ImagemFestas)" />
+            </div>
+
+            <div class="card-text">
+                <p> @Html.DisplayFor(model => model.Festas)</p>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    }
+
+    @if (Html.DisplayTextFor(model => model.ImagemFolclore).ToString() != "")
+    {
+    <div class="img-card iCard-style1">
+        <div class="card-content">
+            <div class="card-image">
+                <span class="card-title"><i class="bi bi-sina-weibo"></i> Folclore</span>
+                <img src="~/img/@Html.DisplayFor(model => model.ImagemFolclore)" />
+            </div>
+
+            <div class="card-text">
+                <p> @Html.DisplayFor(model => model.Folclore)</p>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    }
+
+    @if (Html.DisplayTextFor(model => model.ImagemArtesanato).ToString() != "")
+    {
+    <div class="img-card iCard-style1">
+        <div class="card-content">
+            <div class="card-image">
+                <span class="card-title"><i class="bi bi-palette-fill"></i> Artesanato</span>
+                <img src="~/img/@Html.DisplayFor(model => model.ImagemArtesanato)" />
+            </div>
+
+            <div class="card-text">
+                <p> @Html.DisplayFor(model => model.Artesanato)</p>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    }
+
+    @if (Html.DisplayTextFor(model => model.ImagemVestimenta).ToString() != "")
+    {
+    <div class="img-card iCard-style1">
+        <div class="card-content">
+            <div class="card-image">
+                <span class="card-title"><i class="bi bi-handbag-fill"></i> Vestimenta</span>
+                <img src="~/img/@Html.DisplayFor(model => model.ImagemVestimenta)" />
+            </div>
+
+            <div class="card-text">
+                <p> @Html.DisplayFor(model => model.Vestimenta)</p>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    }
+
+    @if (Html.DisplayTextFor(model => model.ImagemLiteratura).ToString() != "")
+    {
+    <div class="img-card iCard-style1">
+        <div class="card-content">
+            <div class="card-image">
+                <span class="card-title"><i class="bi bi-book-half"></i> Literatura</span>
+                <img src="~/img/@Html.DisplayFor(model => model.ImagemLiteratura)" />
+            </div>
+
+            <div class="card-text">
+                <p> @Html.DisplayFor(model => model.Literatura)</p>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    }
+
+    @if (Html.DisplayTextFor(model => model.ImagemTurismo).ToString() != "")
+    {
+    <div class="img-card iCard-style1">
+        <div class="card-content">
+            <div class="card-image">
+                <span class="card-title"><i class="bi bi-camera-fill"></i> Pontos turísticos</span>
+                <img src="~/img/@Html.DisplayFor(model => model.ImagemTurismo)" />
+            </div>
+
+            <div class="card-text">
+                <p> @Model.Turismo</p>
+            </div>
+        </div>
+    </div>
+    }
+
+
+
+</section>

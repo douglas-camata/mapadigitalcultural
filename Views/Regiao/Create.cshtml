@@ -1,0 +1,110 @@
+@model App.Models.Regiao
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Regiao</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create"  enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImagemDanca" class="control-label"></label>
+                <input type="file" name="fotoDanca"  asp-for="ImagemDanca" class="form-control" />
+                <span asp-validation-for="ImagemDanca" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Danca" class="control-label"></label>
+                <input asp-for="Danca" class="form-control" />
+                <span asp-validation-for="Danca" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImagemCulinaria" class="control-label"></label>
+                <input type="file" name="fotoCulinaria" asp-for="ImagemCulinaria" class="form-control" />
+                <span asp-validation-for="ImagemCulinaria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Culinaria" class="control-label"></label>
+                <input asp-for="Culinaria" class="form-control" />
+                <span asp-validation-for="Culinaria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImagemMusica" class="control-label"></label>
+                <input type="file" name="fotoMusica" asp-for="ImagemMusica" class="form-control" />
+                <span asp-validation-for="ImagemMusica" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Musica" class="control-label"></label>
+                <input asp-for="Musica" class="form-control" />
+                <span asp-validation-for="Musica" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImagemFestas" class="control-label"></label>
+                <input type="file" name="fotoFestas" asp-for="ImagemFestas" class="form-control" />
+                <span asp-validation-for="ImagemFestas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Festas" class="control-label"></label>
+                <input asp-for="Festas" class="form-control" />
+                <span asp-validation-for="Festas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImagemFolclore" class="control-label"></label>
+                <input type="file" name="fotoFolclore" asp-for="ImagemFolclore" class="form-control" />
+                <span asp-validation-for="ImagemFolclore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Folclore" class="control-label"></label>
+                <input asp-for="Folclore" class="form-control" />
+                <span asp-validation-for="Folclore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImagemArtesanato" class="control-label"></label>
+                <input type="file" name="fotoArtesanato" asp-for="ImagemArtesanato" class="form-control" />
+                <span asp-validation-for="ImagemArtesanato" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Artesanato" class="control-label"></label>
+                <input asp-for="Artesanato" class="form-control" />
+                <span asp-validation-for="Artesanato" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImagemVestimenta" class="control-label"></label>
+                <input type="file" name="fotoVestimenta" asp-for="ImagemVestimenta" class="form-control" />
+                <span asp-validation-for="ImagemVestimenta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vestimenta" class="control-label"></label>
+                <input asp-for="Vestimenta" class="form-control" />
+                <span asp-validation-for="Vestimenta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImagemLiteratura" class="control-label"></label>
+                <input type="file" name="fotoLiteratura" asp-for="ImagemLiteratura" class="form-control" />
+                <span asp-validation-for="ImagemLiteratura" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Literatura" class="control-label"></label>
+                <input asp-for="Literatura" class="form-control" />
+                <span asp-validation-for="Literatura" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
